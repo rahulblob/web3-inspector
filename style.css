@@ -1,0 +1,455 @@
+:root{
+    --bg:#ffffff;
+    --border:rgba(0,0,0,.1);
+    --pri:#525fe1;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: var(--bg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button{
+    position: relative;
+    background: var(--pri);
+    border: none;
+    font-size: 15px;
+    padding: 12px 18px;
+    color: #fff;
+    border-radius: 13px;
+    transition: transform .2s;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button::before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background: #f3f3f3;
+    left: 0;
+    top:0;
+    right:0;
+    border-radius: 13px;
+    opacity: .3;
+    height: 100%;
+    /* transform: scale(0); */
+    transition: all .4s;
+    width: 0;
+}
+button:active::before{
+    width: 100%;
+    /* transform: scale(1); */
+}
+button:active{
+    transform: scale(0.97);
+}
+
+.actB::before{
+    width: 100%;
+    /* transform: scale(1); */
+}
+.actB{
+    transform: scale(0.97);
+}
+
+header{
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+    padding: 0px 20px;
+}
+header .logo h3{
+    font-size: 26px;
+}
+header .logo h3 .s{
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 4px;
+}
+header .logo h3 .c{
+    color: var(--pri);
+}
+.notif{
+    margin: 20px;
+}
+.notif .in{
+    background: #eeefff;
+    padding: 13px;
+    border-radius: 13px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+.report{
+    margin: 20px;
+}
+.report .in{
+    display: grid;
+    grid-template-columns: auto;
+    place-items: center;
+    gap:10px
+}
+.report .in button{
+    width: 100%;
+    max-width:400px;
+}
+
+::placeholder{
+    color: #000;
+    opacity: .6;
+}
+input,textarea{
+    border: 1px solid rgba(0,0,0,.1);
+    padding: 10px 15px;
+    border-radius: 13px;
+    width: 100%;
+    max-width: 400px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    resize: vertical;
+    transition: all .2s;
+}
+textarea{
+    min-height: 120px;
+}
+input:focus,textarea:focus{
+    outline: 1px solid var(--pri);
+    outline-offset: 2px;
+}
+.report .in .rpt{
+    background: #eeefff;
+    padding: 13px;
+    border-radius: 13px;
+}
+.report .in .rpt input{
+    margin-bottom: 10px;
+}
+.report .in .rpt button{
+    margin-top: 10px;
+}
+.reportAddress1,.reportWeb1{
+    display: none;
+}
+.landing{
+    margin: 20px;
+}
+.landing h2{
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-size: 25px; */
+    margin-top: 5px;
+}
+.landing .scm{
+    display: grid;
+    gap:10px;
+    margin-bottom: 15px;
+    max-width: 400px;
+    padding: 10px 15px;
+    border-radius: 13px;
+    background: #eeefff;
+}
+.landing .inv{
+    display: grid;
+    gap:10px;
+    margin-bottom: 15px;
+    max-width: 400px;
+    padding: 10px 15px;
+    border-radius: 13px;
+    background: #eeefff;
+}
+.landing .scm button,.landing .inv button{
+    margin-bottom: 10px;
+}
+
+.landing .scm p,.landing .inv p{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+.recent{
+    margin: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.recent .in{
+    display: flex;
+    gap:10px;
+    overflow-x: scroll;
+    padding: 10px;
+}
+.recent .in div{
+    min-width:100%;
+    padding: 10px 14px;
+    background: var(--pri);
+    color: #fff;
+    border-radius: 13px;
+}
+::-webkit-scrollbar{
+    height: 5px;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--pri);
+    border-radius: 13px;
+}
+footer{
+    margin-top: 40px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+}
+footer div{
+    font-size: 13px;
+    align-items: center;
+    display: grid;
+    place-items: center;
+    opacity: .8;
+}
+.toast span{
+    position: fixed;
+    top:-200px;
+    right: 0;
+    left:0;
+    height: 50px;
+    background: var(--pri);
+    margin: 20px;
+    max-width: 500px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--bg);
+    font-weight: 600;
+    box-shadow:0px 0px 25px rgba(0,0,0,.3); 
+    animation: slide 4s forwards;
+    font-weight: 400;
+    font-size:14px;
+    z-index: 1000;
+}
+@keyframes slide {
+    0%{
+        top:-100px;
+    }
+    5%{
+        top:-50px;
+    }
+    10%{
+        top:-10px;
+    }
+    15%{
+        top:0;
+    }
+    20%{
+        top:0;
+    }
+    25%{
+        top:0;
+    }
+    30%{
+        top:0;
+    }
+    35%{
+        top:0;
+    }
+    40%{
+        top:0;
+    }
+    45%{
+        top:0;
+    }
+    50%{
+        top:0;
+    }
+    55%{
+        top:0;
+    }
+    60%{
+        top:0;
+    }
+    65%{
+        top:0;
+    }
+    70%{
+        top:0;
+    }
+    75%{
+        top:0;
+    }
+    80%{
+        top:0;
+    }
+    85%{
+        top:-10px;
+    }
+    90%{
+        top:-50px;
+    }
+    95%{
+        top:-100px;
+    }
+    100%{
+        top:-200px;
+    }
+}
+.loginF{
+    position: fixed;
+    background: rgba(0,0,0,.1);
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    right:0;
+    backdrop-filter: blur(25px);
+    text-align: center;
+    padding: 15px;
+}
+.loginF form{
+    background: #fff;
+    padding: 10px;
+    border-radius: 13px;
+    padding: 10px;
+    display: grid;
+    gap:10px;
+}
+.loginF{
+    display: none;
+}
+
+.menu{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(238, 239, 255);
+    padding: 10px;
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(25px);
+    z-index: 10000;
+}
+.menu .in{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+}
+.menu .in a{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: var(--pri);
+    padding: 10px;
+    border-radius: 13px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    transition: all .3s;
+}
+.menu .in a:focus{
+    transform: scale(0.97);
+}
+.space{
+    margin: 20px;
+    margin-top: 40px;
+}
+.space .in{
+    display: grid;
+    gap:13px;
+}
+.space .in .sp{
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 13px 15px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap:10px
+}
+.space .in .sp .logo{
+    background: #eeefff;
+    padding: 10px;
+    border-radius: 13px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.space .in .sp{
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    background: var(--bg);
+    transition: all .2s;
+}
+.space .in .sp:hover{
+    box-shadow: 0px 0px 20px rgba(0,0,0,.1);
+}
+.space .in .sp .rt{
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 13px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.space .in .sp .usr{
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+
+}
+.deposit{
+    margin: 20px;
+    display: grid;
+    gap:10px;
+}
+.half::before{
+    width: 50%;
+}
+.full::before{
+    width: 100%;
+}
+.cd{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap:10px;
+}
+.cd button{
+    width: 100%;
+}
+.deposit label{
+    font-size: 14px;
+    color: #000;
+    opacity: .9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 3px;
+}
+.ssd{
+    margin: 20px;
+    display: grid;
+    gap:10px;
+}
+.avls{
+    margin: 20px;
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 13px;
+    background: #f3f3f3;
+    text-align: center;
+}
+.avls h2 span{
+    color: var(--pri);
+}
+.avls h2{
+    font-size: 20px;
+    font-weight: 400;
+}

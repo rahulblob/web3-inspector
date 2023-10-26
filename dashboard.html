@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h3>Web<span class="c">3</span><span class="s">Inspector</span></h3>
+        </div>
+        <button class="logoutB">Logout</button>
+    </header>
+
+    <div class="menu">
+        <div class="in">
+            <a href="/dashboard.html">Spaces</a>
+            <a href="/port.html">Portfolio</a>
+            <a href="/with.html">Withdrawl</a>
+        </div>
+    </div>
+
+    <section class="space">
+        <div class="in">
+
+            <div class="sp">
+                <div class="logo">
+                    <span>Investment 25$</span>
+                </div>
+                <div class="rt">
+                    Return - 50$
+                </div>
+                <div class="usr">
+                    <span>$25000 / $25000</span>
+                </div>
+                <button class="actB">Full</button>
+            </div>
+
+            <div class="sp">
+                <div class="logo">
+                    <span>Investment 50$</span>
+                </div>
+                <div class="rt">
+                    Return - 100$
+                </div>
+                <div class="usr">
+                    <span>$25000 / $20500</span>
+                </div>
+                <button class="avl">Invest Now</button>
+            </div>
+
+            <div class="sp">
+                <div class="logo">
+                    <span>Investment 125$</span>
+                </div>
+                <div class="rt">
+                    Return - 250$
+                </div>
+                <div class="usr">
+                    <span>$25000 / $16902</span>
+                </div>
+                <button class="avl">Invest Now</button>
+            </div>
+
+            <div class="sp">
+                <div class="logo">
+                    <span>Investment 150$</span>
+                </div>
+                <div class="rt">
+                    Return - 300$
+                </div>
+                <div class="usr">
+                    <span>$25000 / $24999</span>
+                </div>
+                <button class="avl">Invest Now</button>
+            </div>
+
+            <div class="sp">
+                <div class="logo">
+                    <span>Investment 300$</span>
+                </div>
+                <div class="rt">
+                    Return - 600$
+                </div>
+                <div class="usr">
+                    <span>$25000 / $25000</span>
+                </div>
+                <button class="actB">Full</button>
+            </div>
+
+            <div class="sp">
+                <div class="logo">
+                    <span>Investment 600$</span>
+                </div>
+                <div class="rt">
+                    Return - 1200$
+                </div>
+                <div class="usr">
+                    <span>$25000 / $20901</span>
+                </div>
+                <button class="avl">Invest Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-bottom:80px">
+        <div>
+            <span>Since 2019 All Rights Reserved</span>
+            <span>by DevOps</span>
+        </div>
+    </footer>
+
+    <script>
+        const avl = document.querySelectorAll('.avl');
+        Array.from(avl).forEach((e)=>{
+            e.addEventListener('click',()=>{
+                window.location.href = 'https://'+window.location.host + '/deposit.html';
+            });
+        });
+
+        document.querySelector(".logoutB").addEventListener('click',()=>{
+            localStorage.clear();
+            window.location.href = 'https://'+window.location.host;
+        });
+        if(!localStorage.getItem("wallet")){
+            window.location.href = 'https://'+window.location.host;
+        }
+    </script>
+</body>
+</html>

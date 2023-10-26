@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h3>Web<span class="c">3</span><span class="s">Inspector</span></h3>
+        </div>
+        <button class="logoutB">Logout</button>
+    </header>
+
+    <section class="notif">
+        <div class="in">
+            Withdrawing funds will take 10s to 1 minutes to arrive in your wallet, please provide your trx wallet address only.
+        </div>
+    </section>
+
+    <div class="avls">
+        <h2>Avilable To Withdraw <span>0$</span></h2>
+    </div>
+
+    <form class="ssd" method="post">
+        <input required type="text" placeholder="TRX address">
+        <input required type="number" placeholder="Amount to withdraw">
+        <button type="submit">Withdraw</button>
+    </form>
+
+    <footer>
+        <div>
+            <span>Since 2019 All Rights Reserved</span>
+            <span>by DevOps</span>
+        </div>
+    </footer>
+
+    <div class="toast"></div>
+
+    <script>
+        const ssds3 = document.querySelector(".ssd");
+        ssds3.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            document.querySelector(".toast").innerHTML = "<span>Your Withdrawable Amount Is 0$</span>"
+        });
+    </script>
+</body>
+</html>
