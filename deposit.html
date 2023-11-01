@@ -61,7 +61,7 @@
         const gen = document.querySelector(".gen");
         /*document.querySelector(".adrf").value = localStorage.getItem("blc");*/
         gen.addEventListener("click", () => {
-            if (localStorage.getItem("blc")) {
+    
                 gen.innerHTML = "Generating..";
                 setTimeout(() => {
                     gen.classList.add("half");
@@ -73,12 +73,12 @@
                     localStorage.setItem("blc", "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP");
                 }, 2000);
             }
-            else {
+            
                 gen.addEventListener("click", () => {
                     gen.innerHTML = "Generated!";
                     return 0;
                 });
-            }
+            
         });
         const dones1 = document.querySelector(".done");
         dones1.addEventListener("click", () => {
