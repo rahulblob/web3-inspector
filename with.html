@@ -21,7 +21,7 @@
     </section>
 
     <div class="avls">
-        <h2>Avilable To Withdraw <span>0$</span></h2>
+        <h2>Avilable To Withdraw <span class="avlBB">0$</span></h2>
     </div>
 
     <form class="ssd" method="post">
@@ -45,6 +45,8 @@
             e.preventDefault();
             document.querySelector(".toast").innerHTML = "<span>Your Withdrawable Amount Is 0$</span>"
         });
+        const avlB = localStorage.getItem("avl") || 0;
+        document.querySelector(".avlBB").innerHTML = avlB + '$';
     </script>
 </body>
 </html>
